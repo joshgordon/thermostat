@@ -1,9 +1,9 @@
 FROM mhart/alpine-node:latest
 
-RUN mkdir -p /src/thermostat && apk add --no-cache tini
+RUN apk add --no-cache tini
 workdir /src/thermostat
 
-add . /src
+add . /src/thermostat
 
 cmd ["/sbin/tini", "node", "index.js"]
 
